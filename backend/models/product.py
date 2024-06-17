@@ -1,7 +1,5 @@
 from db import conn, cursor
 from models.category import Category
-
-
 class Product:
     TABLE_NAME="products"
     def __init__(self,title,desc,price,img):
@@ -28,24 +26,24 @@ class Product:
                 SET title =?,desc =?,price =?,img=?
                 WHERE id = ?
             """  
-            cursor.execute(sql,(self.title,self.desc,self.pice,self.img))
-            conn.commit()
+        cursor.execute(sql,(self.title,self.desc,self.pice,self.img))
+        conn.commit()
 
-            return self
+        return self
 
     def to_dict (self):
             return{
                 "id":self.id,
-                "title":self.name
-                "desc":self.desc
-                "img":self.img
+                "title":self.name,
+                "desc":self.desc,
+                "img":self.img,
             }   
     @classmethod
     def find_one(cls, id):
         sql = """
-            SELECT catalogues.*, genres.* FROM catalogues
-            LEFT JOIN genres ON products.category_id = categories.id
-            WHERE catalogues.id = ?
+            SELECT products.*, genres.* FROM products
+            LEFT JOIN catagories ON products.category_id = categories.id
+            WHERE products.id = ?
         """
 
         row = cursor.execute(sql, (id,)).fetchone()
@@ -78,7 +76,7 @@ class Product:
             cls.row_to_instance(row).to_dict() for row in rows
         ]
         
-     @classmethod
+    @classmethod
     def create_table(cls):
         sql = f"""
             CREATE TABLE IF NOT EXISTS {cls.TABLE_NAME} (
@@ -90,7 +88,7 @@ class Product:
     
             )
         """
-        cursor.execute(sql)
+        cursor.execute(sql).fetchall
         conn.commit()
         print("Products table created successfully")
 
