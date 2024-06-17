@@ -1,8 +1,7 @@
 import React from 'react'
+import Product from './Product'
 
-import Product from './Product';
-
-function Home() {
+const Home = () => {
     return (
         <div>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -12,18 +11,18 @@ function Home() {
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
-                <div className="carousel-inner">
+                <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/assets/home/img1.jpg" class="d-block w-100" alt="Coffee" height="700px"/>
+                        <img src="/assets/home/img1.jpg" class="d-block w-100" alt="Coffee" height="500px"/>
     </div>
                         <div class="carousel-item">
-                            <img src="/assets/home/img2.jpg" class="d-block w-100" alt="Coffee" height="700px"/>
+                            <img src="/assets/home/img2.jpg" class="d-block w-100" alt="Coffee" height="500px"/>
     </div>
                             <div class="carousel-item">
-                                <img src="/assets/home/img3.jpg" class="d-block w-100" alt="Coffee" height="400px"/>
+                                <img src="/assets/home/img3.jpg" class="d-block w-100" alt="Coffee" height="500px"/>
     </div>
                             <div class="carousel-item">
-                                <img src="/assets/home/img4.jpg" class="d-block w-100" alt="Coffee" height="500px"/>
+                                <img src="/assets/images/home/img4.jpg" class="d-block w-100" alt="Coffee" height="500px"/>
     </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -35,9 +34,8 @@ function Home() {
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                      <Product />
+                        <Product/>
                     </div>
-                    
                     )
 }
 
