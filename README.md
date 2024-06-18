@@ -22,9 +22,8 @@ Navigate through Google and search for anything that needs to be downloaded in t
 
 ```
 
-# Live Link
-[Git](gh-pages link)
-
+# Video Link
+https://www.loom.com/share/f128d4ea703e4d63affa8a8de2936b24?sid=dc8af045-ba2e-4b12-919f-371a7a243a5a
 ## Technologies used
 React
 Bootstrap
